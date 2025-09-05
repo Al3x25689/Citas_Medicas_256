@@ -41,7 +41,6 @@ function App() {
   const eliminarCita = async (id) => {
     if (!window.confirm("¿Estás seguro de eliminar esta cita?")) return;
     try {
-      // animación fade-out
       setCitas((prev) => prev.map(c => c.id === id ? {...c, removing: true} : c));
       setTimeout(async () => {
         await deleteDoc(doc(db, "citas", id));
